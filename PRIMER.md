@@ -58,7 +58,8 @@ blanks `plugin_fpp_host`, so no LAN path ever runs.
 - `scripts/postStart.sh`: Blackbox-installed guard.
 - `pluginInfo.json`: repoName `showpilot-cloud-link`, name, description, URLs,
   privacy entry for the live-position connection.
-- `showpilot_ui.html`: source link.
+- `showpilot_ui.html`: source link; Server URL hint points at the Cloud
+  dashboard's ShowPilot URL.
 - `README.md`, this primer. (Blackbox's PRIMER.md/CLAUDE.md not copied.)
 
 `version.php` stays at the Blackbox version it's based on so the server's

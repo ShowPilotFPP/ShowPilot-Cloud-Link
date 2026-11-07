@@ -102,9 +102,8 @@ function spInputAttrs($pluginName, $key, $expr) {
     </div>
 
     <?php spRowStart('Server URL', 'serverUrl',
-      'Where your self-hosted ShowPilot server is reachable, e.g. <code>http://192.168.1.230:3100</code> or
-       <code>https://lights.yourdomain.com</code>. No trailing slash. Use <code>https://</code> for any server
-       outside your home network — the show token is sent with every request.'); ?>
+      'Your show\'s address from the ShowPilot Cloud dashboard (Manage → ShowPilot URL), e.g.
+       <code>https://yourshow.showpilot.dev</code>. No trailing slash.'); ?>
       <input type="text" class="form-control" id="serverUrl" autocomplete="off"
         value="<?php echo htmlspecialchars(val($pluginSettings, 'serverUrl')); ?>"
         <?php echo spInputAttrs($pluginName, 'serverUrl', 'this.value'); ?> />
