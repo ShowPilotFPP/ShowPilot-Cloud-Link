@@ -1,0 +1,63 @@
+{
+	"repoName": "showpilot-cloud-link",
+	"name": "ShowPilot Cloud Link",
+	"author": "ShowPilot Project",
+	"description": "For shows hosted on ShowPilot Cloud. Use it instead of ShowPilot Blackbox, not alongside it. Does everything Blackbox does (voting, jukebox requests, sending what is playing and, when you click Sync, your songs’ audio) and also keeps one outbound connection open to your hosted show so it gets FPP’s live song position for phone audio sync. No port forwarding needed.",
+	"homeURL": "https://github.com/ShowPilotFPP/ShowPilot-Cloud-Link",
+	"srcURL": "https://github.com/ShowPilotFPP/ShowPilot-Cloud-Link.git",
+	"bugURL": "https://github.com/ShowPilotFPP/ShowPilot-Cloud-Link/issues",
+	"iconURL": "https://raw.githubusercontent.com/ShowPilotFPP/ShowPilot-Cloud-Link/main/icon.png",
+	"allowUpdates": 1,
+	"minMemoryMB": 256,
+	"minCpuCores": 1,
+	"versions": [
+		{
+			"minFPPVersion": "10.0",
+			"maxFPPVersion": "0",
+			"branch": "main",
+			"sha": ""
+		}
+	],
+	"privacy": {
+		"summary": "Links FPP to your hosted ShowPilot Cloud show so visitors can vote, request songs and listen on their phones. Sends what is playing, its live position and, when you sync, your song list and audio to your show.",
+		"sends": [
+			{
+				"to": "your ShowPilot server",
+				"what": "the song playing, its position, the plugin version and your request playlist's songs",
+				"why": "so the viewer page can display the show and queue votes and requests",
+				"alwaysOn": false
+			},
+			{
+				"to": "your ShowPilot server",
+				"what": "audio from the songs in your request playlist, only when you click Sync Now",
+				"why": "so ShowPilot can play the show's audio on visitors' mobile devices",
+				"alwaysOn": false
+			},
+			{
+				"to": "your ShowPilot Cloud show",
+				"what": "FPP's live song position, several times a second, over one outbound connection",
+				"why": "so phones listening to the show stay in sync with your speakers",
+				"alwaysOn": false
+			}
+		],
+		"collects": [],
+		"sensors": [],
+		"remoteAccess": "lan",
+		"systemChanges": [
+			{
+				"kind": "network",
+				"what": "audio server on port 8090 (configurable) sharing your music files and playback position with your network"
+			},
+			{
+				"kind": "service",
+				"what": "a background listener and audio daemon that starts and stops with FPP"
+			},
+			{
+				"kind": "core-settings",
+				"what": "keeps its own \"ShowPilot Queue\" playlist and a cooldown list file in FPP's playlist and config folders"
+			}
+		],
+		"closedCode": false,
+		"other": "Visitor votes and requests are received and stored by your ShowPilot server, not on this FPP instance. The show token is kept in plugindata/, readable only by the plugin."
+	}
+}

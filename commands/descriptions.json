@@ -1,0 +1,97 @@
+[
+  {
+    "name": "ShowPilot - Turn Viewer Control On",
+    "script": "viewer_control_on.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Turn Viewer Control Off",
+    "script": "viewer_control_off.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Switch to Voting Mode",
+    "script": "set_mode_voting.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Switch to Jukebox Mode",
+    "script": "set_mode_jukebox.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Switch to Race Mode",
+    "script": "set_mode_race.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Switch to Listen Only Mode",
+    "script": "set_mode_listen.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Restart Listener",
+    "script": "restart_listener.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Stop Listener",
+    "script": "stop_listener.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Turn Interrupt Schedule On",
+    "script": "interrupt_on.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Turn Interrupt Schedule Off",
+    "script": "interrupt_off.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Enable Category",
+    "script": "category_enable.php",
+    "args": [
+      {
+        "name": "category",
+        "type": "string",
+        "description": "Category",
+        "optional": false,
+        "help": "The category to switch on, spelled as in ShowPilot's Categories list (capitals don't matter). Needs ShowPilot v0.33.249 or newer."
+      }
+    ]
+  },
+  {
+    "name": "ShowPilot - Disable Category",
+    "script": "category_disable.php",
+    "args": [
+      {
+        "name": "category",
+        "type": "string",
+        "description": "Category",
+        "optional": false,
+        "help": "The category to switch off, spelled as in ShowPilot's Categories list (capitals don't matter). Needs ShowPilot v0.33.249 or newer."
+      }
+    ]
+  },
+  {
+    "name": "ShowPilot - Clear Queue",
+    "script": "clear_queue.php",
+    "args": []
+  },
+  {
+    "name": "ShowPilot - Set Viewer Page",
+    "script": "set_viewer_page.php",
+    "args": [
+      {
+        "name": "page",
+        "type": "string",
+        "description": "Viewer page",
+        "optional": false,
+        "contentListUrl": "plugin.php?_menu=content&plugin=showpilot-plugin&page=viewer_pages.php&nopage=1",
+        "help": "The viewer page (template) to make live, as named in ShowPilot's Viewer Page list (capitals don't matter). The list is read from ShowPilot; you can also type a name. Needs ShowPilot v0.33.249 or newer."
+      }
+    ]
+  }
+]

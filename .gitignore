@@ -1,0 +1,20 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Build artifacts
+*.tar.gz
+dist/
+
+# Plugin config (lives in /home/fpp/media/config/plugin.showpilot at runtime,
+# not in this repo, but ignore here just in case)
+plugin.showpilot
+
+# ShipPilot release manifest (never committed; defense in depth)
+.release.json
+
+# Left over from npm installs before 0.14.5 (ws is vendored in vendor/ws now)
+node_modules/
