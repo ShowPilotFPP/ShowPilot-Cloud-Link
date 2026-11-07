@@ -76,6 +76,11 @@ simulated FPP FIFO events — positions and sync points reach a Socket.io
 viewer on time; reconnects ~3 s after a server restart; wrong token → 401
 and 5-minute wait; audio-locked show → 403.
 
+Field test (2026-11-07): a real Raspberry Pi on FPP 10.3 with Cloud Link,
+linked to a Cloud test show on the `cloud-link` ShowPilot branch. Phone audio
+played in sync with the show from a phone on cellular and a computer on a
+different network — nothing on the FPP's network was reachable from outside.
+
 ## Version history
 
 - **cloud-1** (based on Blackbox 0.14.22) — Outbound link for hosted shows.
