@@ -11,9 +11,11 @@ for shows hosted on **ShowPilot Cloud**. Forked from Blackbox **v0.14.22**
 **outbound link** from the FPP's audio daemon to the hosted show.
 
 It exists as a separate plugin only so live Blackbox installs can't be
-affected during the 2026 season. Plan: fold the link into Blackbox after the
-season (it's inert against servers without the endpoint — see below) and
-retire this repo.
+affected during the 2026 season. **Parked (2026-11-07):** testers are existing
+ShowPilot users on Blackbox, so swapping plugins mid-season isn't workable.
+After the season, fold the link into Blackbox (it backs off for 5 minutes
+against servers without the endpoint — see below), merge ShowPilot's
+`cloud-link` branch, and retire this repo.
 
 ## Why the link is needed
 
