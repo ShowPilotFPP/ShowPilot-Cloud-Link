@@ -58,7 +58,9 @@ blanks `plugin_fpp_host`, so no LAN path ever runs.
 
 - `showpilot_audio.js`: Cloud link section; header env docs.
 - `scripts/showpilot_env.sh`: passes `SP_CONFIG_FILE`, `SP_TOKEN_FILE`.
-- `scripts/postStart.sh`: Blackbox-installed guard.
+- `scripts/postStart.sh`, `scripts/restart-daemon.sh`: Blackbox-installed guard.
+- `commands/restart_listener.php`: also restarts the audio daemon (cloud-2).
+- `showpilot_ui.html` title and listener log lines say Cloud Link.
 - `pluginInfo.json`: repoName `showpilot-cloud-link`, name, description, URLs,
   privacy entry for the live-position connection.
 - `showpilot_ui.html`: source link; Server URL hint points at the Cloud
@@ -84,3 +86,14 @@ different network — nothing on the FPP's network was reachable from outside.
 ## Version history
 
 - **cloud-1** (based on Blackbox 0.14.22) — Outbound link for hosted shows.
+- **cloud-2** (based on Blackbox 0.14.22) — Bug fix: **Restart Listener**
+  now restarts the audio daemon too. The daemon (which holds the outbound
+  link) only starts when a Server URL is set, and before this it only ever
+  started with FPP itself — so on an FPP that booted before the URL was
+  entered, saving the URL and clicking Restart Listener brought back
+  check-ins and requests but never the link, and phones fell back to the
+  rough start position ("no syncPoint"). Found in the field: the log had no
+  daemon lines after "Audio daemon not started: no Server URL configured
+  yet". `restart-daemon.sh` also gets the Blackbox guard. Branding: the
+  config page title and listener log lines now say ShowPilot Cloud Link.
+  Checked: `php -l`, `bash -n`.

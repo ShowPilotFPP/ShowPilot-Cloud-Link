@@ -33,5 +33,13 @@ $dropRoot = (function_exists('posix_geteuid') && posix_geteuid() === 0 && is_exe
 @shell_exec('/usr/bin/setsid ' . $dropRoot . '/usr/bin/php ' . escapeshellarg($listenerPath)
     . ' </dev/null >>' . escapeshellarg(sp_log_file()) . ' 2>&1 &');
 
+// Cloud Link: restart the audio daemon too. It holds the outbound link to the
+// hosted show, and it only starts when a Server URL is set — so after the
+// URL is entered for the first time (when FPP started without one), this
+// restart is what brings the link up. restart-daemon.sh drops to the fpp
+// user itself and refuses to start while Blackbox is installed.
+@shell_exec('/usr/bin/setsid /bin/bash ' . escapeshellarg(dirname(__DIR__) . '/scripts/restart-daemon.sh')
+    . ' </dev/null >/dev/null 2>&1 &');
+
 // Brief pause so the UI's immediate status re-poll already sees it running.
 usleep(200000);

@@ -3,6 +3,12 @@
 
 . "$(dirname "${BASH_SOURCE[0]}")/showpilot_env.sh"
 
+# Same rule as postStart.sh: never alongside ShowPilot Blackbox.
+if [ -d "${MEDIADIR}/plugins/showpilot-plugin" ]; then
+    echo "ShowPilot Blackbox is also installed — not starting the Cloud Link audio daemon"
+    exit 1
+fi
+
 ensure_runtime_files
 stop_audio_daemon
 if pgrep -f "$AUDIO_DAEMON" >/dev/null 2>&1; then
